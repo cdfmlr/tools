@@ -120,7 +120,7 @@ def cli_parser() -> argparse.ArgumentParser:
     group_custom.add_argument(f'--env',
                               action='append',
                               type=str,
-                              help=f'Custom os/editor: {HUB_URL}/<ENV>.gitignore')
+                              help=f'Custom os/editor: {HUB_URL}/Global/<ENV>.gitignore')
 
     return parser
 
