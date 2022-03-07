@@ -13,3 +13,5 @@ alias minidocker="source ${THIS_DIR}/minikube-docker.sh"
 # make-gitignore
 alias makegitignore="python3 ${THIS_DIR}/make-gitignore.py"
 
+# f2utf8
+alias f2utf8="python3 ${THIS_DIR}/f2utf8.py"

@@ -39,7 +39,7 @@ $ minidocker {start,stop}
 
 ## makegitignore
 
-A command to fill `./.gitignore` with templates from [github.com/github/gitignore](github.com/github/gitignore).
+A command to fill `./.gitignore` with templates from [github.com/github/gitignore](https://github.com/github/gitignore).
 
 Usage:
 
@@ -59,3 +59,19 @@ E.g.
 $ makegitignore -d --go --lang Swift --lang TeX --env Windows
 ```
 
+## f2utf8
+
+Any text file to UTF-8.
+
+```sh
+f2utf8.py [-h] [-o OUTFILE] file
+
+convert file to utf-8 encoded
+
+positional arguments:
+  file
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -o OUTFILE, --outfile OUTFILE
+```
