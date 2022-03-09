@@ -75,3 +75,7 @@ optional arguments:
   -h, --help            show this help message and exit
   -o OUTFILE, --outfile OUTFILE
 ```
+
+## others
+
+All kinds of clutter. Read the source code before using.
