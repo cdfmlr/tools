@@ -30,6 +30,7 @@ proxy_on() {
 	export http_proxy=${HTTPPROXY}
     export https_proxy=$http_proxy
     git config --global http.proxy ${HTTPPROXY} 
+	git config --global https.proxy ${HTTPPROXY}
     echo "Proxy On: ${SOCKPROXY}"
 }
 
@@ -37,6 +38,7 @@ proxy_off() {
     unset http_proxy
     unset https_proxy
     git config --global --unset http.proxy
+	git config --global --unset https.proxy
     echo "Proxy off."
 }
 
