@@ -6,10 +6,15 @@
 import re
 import sys
 
+if len(sys.argv) < 2 or sys.argv[1] in ['-h', '--help', 'h', 'help']:
+    print("Usage: km2t /path/to/file.key.md")
+    print('km2t: KeynotePresenterNotesMarkdown to text')
+    print("简化 KeynotePresenterNotesToMarkdown.scpt 的输出文件。制作逐字稿。")
+    exit(1)
 filename = sys.argv[1]
 
 pattern = '## Slide [\s\S]*? Notes:'
-repl = '。'
+repl = ''  # repl = '---'
 
 with open(filename) as f:
     t = re.sub(pattern, repl, f.read())
