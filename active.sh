@@ -18,3 +18,10 @@ alias f2utf8="python3 ${THIS_DIR}/f2utf8.py"
 
 # km2t
 alias km2t="python3 ${THIS_DIR}/others/km2t.py"
+
+# ignore_folders_in_spotlight
+alias ignore_folders_in_spotlight="sudo ${THIS_DIR}/ignore_folders_in_spotlight.py"
+
+# httpserve
+alias httpserve="python3 ${THIS_DIR}/simple-cors-http-server.py"
+

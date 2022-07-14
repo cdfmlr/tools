@@ -11,7 +11,7 @@ usage() {
 
 Usage: 
 
-	source minikube-docker.sh <start|stop>
+	source minikube-docker.sh <start|stop|shell>
 
 This script helps to start/stop a docker demon by running:
     minikube start|stop -p ${MPNAME}
@@ -33,6 +33,10 @@ stop() {
 	minikube stop -p ${MPNAME}
 }
 
+shell() {
+	eval $(minikube -p ${MPNAME} docker-env)
+}
+
 # if [ $# -le 0 ]; then
 #     usage
 # fi
@@ -43,6 +47,9 @@ case $1 in
 		;;
 	"stop")
 		stop
+		;;
+	"shell")
+		shell
 		;;
 	*)
 		usage
