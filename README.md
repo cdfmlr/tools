@@ -76,6 +76,56 @@ optional arguments:
   -o OUTFILE, --outfile OUTFILE
 ```
 
+## ignore_folders_in_spotlight
+
+[SUDO] Make spotlight ignoring folders:
+
+```sh
+ignore_folders_in_spotlight [-h] [-n NAME] [-s SPOTLIGHT_PLIST_PATH] path
+
+Ignore a path in Spotlight
+
+positional arguments:
+  path                  Path to ignore
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -n NAME, --name NAME  Name of the path to ignore
+  -s SPOTLIGHT_PLIST_PATH, --spotlight-plist-path SPOTLIGHT_PLIST_PATH
+                        Path to the Spotlight plist
+```
+
+e.g. ignore all node_modules:
+
+```sh
+ignore_folders_in_spotlight -n node_modules /
+```
+
+## httpserve
+
+A simple static http server with CORS allowed:
+
+```sh
+httpserve [-h] [--cgi] [--bind ADDRESS] [--directory DIRECTORY] [port]
+
+positional arguments:
+  port                  specify alternate port (default: 8000)
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --cgi                 run as CGI server
+  --bind ADDRESS, -b ADDRESS
+                        specify alternate bind address (default: all interfaces)
+  --directory DIRECTORY, -d DIRECTORY
+                        specify alternate directory (default: current directory)
+```
+
+e.g.
+
+```sh
+httpserve -d ./myweb 8000
+```
+
 ## others
 
 All kinds of clutter. Read the source code before using.

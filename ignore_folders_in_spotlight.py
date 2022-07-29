@@ -160,7 +160,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="Ignore a path in Spotlight")
     parser.add_argument("-n", "--name", help="Name of the path to ignore")
     parser.add_argument("-s", "--spotlight-plist-path",
-                        help="Path to the Spotlight plist")
+            help="Path to the Spotlight plist, default: /System/Volumes/Data/.Spotlight-V100/VolumeConfiguration.plist")
     parser.add_argument("path", help="Path to ignore", default=".")
     args = parser.parse_args()
 
