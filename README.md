@@ -126,6 +126,53 @@ e.g.
 httpserve -d ./myweb 8000
 ```
 
+## emsend
+
+Send emails.
+
+```sh
+emsend [-f SENDER] [-p PASSWORD] [-m SMTP_HOST] [-t RECEIVERS]
+       [-s SUBJECT] [-c CONTENT] [-a ATTACHMENTS] [-S SIGNATURE]
+
+Send email.
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -f SENDER, --from SENDER
+                        Sender email address. Default: None (set by MYEMAIL_SENDER)
+  -p PASSWORD, --password PASSWORD
+                        Sender email password. Default: None (set by MYEMAIL_PASSWORD)
+  -m SMTP_HOST, --smtp SMTP_HOST
+                        SMTP host. Default: None (set by MYEMAIL_SMTP_HOST)
+  -t RECEIVERS, --to RECEIVERS
+                        Receiver email address. Multiple receivers can be specified by
+                        multiple -t options: -t receiver1 -t receiver2
+  -s SUBJECT, --subject SUBJECT
+                        subject, default: "No subject"
+  -c CONTENT, --content CONTENT
+                        content in plain text. Default: read from stdin
+  -a ATTACHMENTS, --attachment ATTACHMENTS
+                        attachment file path. Multiple attachments can be specified by
+                        multiple -a options: -a attachment1 -a attachment2
+  -S SIGNATURE, --signature SIGNATURE
+                        signature, default: "<sender> <current time>"
+```
+
+example:
+
+```sh
+emsend -f foo@bar.com -p greetPassW0rd -m smtp.bar.com -t fuzz@buzz.com -s 'A test email'
+<content from stdin>
+```
+
+```sh
+export MYEMAIL_SENDER=foo@bar.com
+export MYEMAIL_PASSWORD=greetPassW0rd
+export MYEMAIL_SMTP_HOST=smtp.bar.com
+emsend -t fuzz@buzz.com -a hello.jpg -c hello.txt
+emsend --help | emsend -t fuzz@buzz.com -s 'emsend help'
+```
+
 ## others
 
 All kinds of clutter. Read the source code before using.

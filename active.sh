@@ -25,3 +25,6 @@ alias ignore_folders_in_spotlight="sudo ${THIS_DIR}/ignore_folders_in_spotlight.
 # httpserve
 alias httpserve="python3 ${THIS_DIR}/simple-cors-http-server.py"
 
+# emsend
+alias emsend="python3 ${THIS_DIR}/myemail_sender.py"
+
