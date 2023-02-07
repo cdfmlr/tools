@@ -126,6 +126,24 @@ e.g.
 httpserve -d ./myweb 8000
 ```
 
+## httpstatic
+
+A golang alternative to `httpserve`, with better performance (maybe) and more features (e.g. 206).
+
+
+```sh
+httpstatic -d . -l :8080
+```
+
+Serving static files from a directory (`.`) over HTTP (`:8080`) with CORS allowed.
+Notice the arguments are different from `httpserve`.
+
+⚠️ Build before use (TODO: make a global Makefile for any required tools later):
+
+```sh
+cd ./httpstatic && make
+```
+
 ## emsend
 
 Send emails.

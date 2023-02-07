@@ -22,9 +22,14 @@ alias km2t="python3 ${THIS_DIR}/others/km2t.py"
 # ignore_folders_in_spotlight
 alias ignore_folders_in_spotlight="sudo ${THIS_DIR}/ignore_folders_in_spotlight.py"
 
-# httpserve
+# httpserve (python)
 alias httpserve="python3 ${THIS_DIR}/simple-cors-http-server.py"
+
+# httpstatic (go)
+alias httpstatic="${THIS_DIR}/httpstatic/bin/httpstatic"
 
 # emsend
 alias emsend="python3 ${THIS_DIR}/myemail_sender.py"
 
+# kill 输入法
+alias killscim="sh ${THIS_DIR}/kill-scim.sh"
