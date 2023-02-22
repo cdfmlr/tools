@@ -33,3 +33,7 @@ alias emsend="python3 ${THIS_DIR}/myemail_sender.py"
 
 # kill 输入法
 alias killscim="sh ${THIS_DIR}/kill-scim.sh"
+
+# pyenv-brew-relink
+alias pyenv-brew-relink="sh ${THIS_DIR}/pyenv-brew-relink.sh"
+
