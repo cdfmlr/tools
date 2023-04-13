@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"net/http"
 	"os"
+	"strings"
 	"time"
 
 	"github.com/gin-contrib/cors"
@@ -12,8 +13,9 @@ import (
 )
 
 var (
-	addr = flag.String("l", ":8080", "http listen address.")
-	dir  = flag.String("d", ".", "static directory path.")
+	addr  = flag.String("l", ":8080", "http listen address.")
+	dir   = flag.String("d", ".", "static directory path.")
+	https = flag.String("s", "", "enable TLS: `CERT_FILE:KEY_FILE`")
 )
 
 func init() {
@@ -41,9 +43,34 @@ func main() {
 	}))
 
 	router.StaticFS("/", http.Dir(*dir))
-	fmt.Printf("Serving dir %s on HTTP (%s).\n", *dir, *addr)
-	if err := router.Run(*addr); err != nil {
+
+	var err error
+
+	switch *https != "" {
+	case true: // enable tls
+		var cert, key string
+		if cert, key, err = parseTlsConfig(*https); err == nil {
+			fmt.Printf("Serving dir %s on HTTPS (%s).\n\tcert: %s\n\t key: %s\n", *dir, *addr, cert, key)
+			err = router.RunTLS(*addr, cert, key)
+		}
+	case false: // http
+		fmt.Printf("Serving dir %s on HTTP (%s).\n", *dir, *addr)
+		err = router.Run(*addr)
+	}
+
+	if err != nil {
 		fmt.Printf("Error: %s\n", err)
 		os.Exit(1)
 	}
+}
+
+// parseTlsConfig "certFile:keyFile" into certFile & keyFile
+func parseTlsConfig(certAndKey string) (certFile, keyFile string, err error) {
+	ss := strings.Split(certAndKey, ":")
+	if len(ss) != 2 {
+		return "", "", fmt.Errorf("bad -s value: \"CERT_FILE:KEY_FILE\" expected")
+	}
+	certFile, keyFile = ss[0], ss[1]
+	return
+
 }
