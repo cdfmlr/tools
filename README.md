@@ -27,16 +27,6 @@ $ proxy {on,off,do CMD}
     do CMD  run a command CMD with proxy on, then take the proxy off 
 ```
 
-## minidocker
-
-This script helps to start a docker demon by running `minikube start -p no-k8s-docker` and setting up docker env: `eval $(minikube -p no-k8s-docker docker-env)`.
-
-Usage:
-
-```sh
-$ minidocker {start,stop}
-```
-
 ## makegitignore
 
 A command to fill `./.gitignore` with templates from [github.com/github/gitignore](https://github.com/github/gitignore).
@@ -189,6 +179,49 @@ export MYEMAIL_PASSWORD=greetPassW0rd
 export MYEMAIL_SMTP_HOST=smtp.bar.com
 emsend -t fuzz@buzz.com -a hello.jpg -c hello.txt
 emsend --help | emsend -t fuzz@buzz.com -s 'emsend help'
+```
+
+## cfddns
+
+A python client used to update dynamic DNS entries on Cloudfalre.
+
+```
+usage: cfddns [-h] --token TOKEN --zone ZONE --name NAME --type TYPE [--content CONTENT | --autoconf-tmp-ipv6]
+              --proxied [--verbose]
+
+optional arguments:
+  -h, --help           show this help message and exit
+  --verbose            verbose output.
+
+Cloudflare configure:
+  --token TOKEN        bearer token
+  --zone ZONE          zone identifier
+
+Record to be updated:
+  --name NAME          DNS record name (or @ for the zone apex) in Punycode. Example: example.com
+  --type TYPE          Record type. Example: AAAA
+  --content CONTENT    A valid IPv6 address. Example: 2400:cb00:2049::1
+  --autoconf-tmp-ipv6  Use an autoconf temporary IPv6 address from ifconfig as content.
+  --proxied            Whether the record is receiving the performance and security benefits of Cloudflare.
+```
+
+References:
+
+- DDNS: https://www.cloudflare.com/learning/dns/glossary/dynamic-dns/
+- DNS Record Detail API: https://developers.cloudflare.com/api/operations/dns-records-for-a-zone-dns-record-details
+- Update DNS Record API: https://developers.cloudflare.com/api/operations/dns-records-for-a-zone-update-dns-record
+
+
+## minidocker
+
+> no longer maintained
+
+This script helps to start a docker demon by running `minikube start -p no-k8s-docker` and setting up docker env: `eval $(minikube -p no-k8s-docker docker-env)`.
+
+Usage:
+
+```sh
+$ minidocker {start,stop}
 ```
 
 ## others
