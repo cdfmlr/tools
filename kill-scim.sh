@@ -8,6 +8,8 @@ usage() {
 	echo "目测 macOS 13.0.1 (22A400) 输入法线程数超过一定数量（感觉是 64 个）就会卡住整个系统（跨应用的彩虹圈）。"
 	echo "这个程序检查输入法线程数，大于 max_threads 时可以一键杀死输入法，避免卡顿问题。"
 	echo ""
+	echo "Update: 目测 Sonoma (截止 14.1.2 23B92) 仍然存在这个问题。"
+	echo ""
 	echo "实际上用一行命令就可以完成这个："
 	echo '  scim_pid=$(ps aux | grep "SCIM.app" | grep "zh-Hans-CN" | cut -f 2 -w) && ps -M $scim_pid | wc -l |xargs test 64 -lt && kill -9 $scim_pid'
 	echo "但这个脚本可读性和鲁班性更好一点。"
