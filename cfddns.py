@@ -14,6 +14,7 @@ import argparse
 import subprocess
 import http.client
 from dataclasses import dataclass
+from typing import Optional
 
 
 @dataclass
@@ -25,7 +26,7 @@ class Record:
     proxied: bool # False
 
 
-def cloudflare_request(token: str, method: str, url: str, body: str = None):
+def cloudflare_request(token: str, method: str, url: str, body: Optional[str] = None):
     conn = http.client.HTTPSConnection("api.cloudflare.com")
 
     headers = {
@@ -63,9 +64,19 @@ def get_autoconf_temp_ipv6() -> str:
     # check=True: do assert
     subprocess.run('test "$(uname)" = "Darwin"', shell=True, check=True)
 
-    cmd = 'ifconfig en1 | grep inet6 | grep "autoconf temporary" | grep --invert-match "deprecated" | cut -d " " -f 2'
+    #for req_cmd in ['ifconfig', 'grep', 'cut']:
+    #    w = subprocess.run(f'which {req_cmd}', shell=True, capture_output=True)
+    #    print(f'[DBG] which {req_cmd}: {w.stdout.decode()}')
+
+    
+    cmd = '''/sbin/ifconfig en1 | \
+             /usr/bin/grep inet6 | \
+             /usr/bin/grep "autoconf temporary" | \
+             /usr/bin/grep --invert-match "deprecated" | \
+             /usr/bin/cut -d " " -f 2'''
     run = subprocess.run(cmd, shell=True, capture_output=True)
     ips = run.stdout.decode().strip()
+    print(f'[DBG] {ips=}')
     return ips.split('\n')[-1]
 
 
