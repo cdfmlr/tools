@@ -35,3 +35,6 @@ alias emsend="python3 $TOOLSDIR/myemail_sender.py"
 # kill 输入法
 alias killscim="sh $TOOLSDIR/kill-scim.sh"
 
+# portnum 每日端口号
+alias portnum="python3 $TOOLSDIR/portnum.py"
+ 

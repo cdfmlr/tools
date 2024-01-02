@@ -37,3 +37,5 @@ alias killscim="sh ${THIS_DIR}/kill-scim.sh"
 # pyenv-brew-relink
 alias pyenv-brew-relink="sh ${THIS_DIR}/pyenv-brew-relink.sh"
 
+# portnum 每日端口号
+alias portnum="python3 ${THIS_DIR}/portnum.py"

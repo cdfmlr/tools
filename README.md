@@ -14,6 +14,17 @@ source /path/to/tools/active.sh
 
 Then all tools wil be ready.
 
+## protnum
+
+Convert a date (e.g. 23-12-31) to a port number (e.g. 23721). The process of transformation is reversible.
+
+Usage:
+
+```sh
+protnum [YY-MM-DD]
+        Default: today
+```
+
 ## proxy
 
 Proxy takes the http proxy on/off in current env by export/unset the `http_proxy`, `https_proxy`, `git config --global http.proxy`.
