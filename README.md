@@ -25,19 +25,6 @@ protnum [YY-MM-DD]
         Default: today
 ```
 
-## proxy
-
-Proxy takes the http proxy on/off in current env by export/unset the `http_proxy`, `https_proxy`, `git config --global http.proxy`.
-
-Usage:
-
-```sh
-$ proxy {on,off,do CMD}
-    on      takes proxy on
-    off     takes proxy off
-    do CMD  run a command CMD with proxy on, then take the proxy off 
-```
-
 ## makegitignore
 
 A command to fill `./.gitignore` with templates from [github.com/github/gitignore](https://github.com/github/gitignore).
@@ -238,3 +225,7 @@ $ minidocker {start,stop}
 ## others
 
 All kinds of clutter. Read the source code before using.
+
+## private
+
+Very personal tools that are not suitable for public.

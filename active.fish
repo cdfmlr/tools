@@ -4,8 +4,7 @@ set TOOLSDIR "$HOME/tools"
 
 source $TOOLSDIR/sourcesh.fish
 
-# proxy
-alias proxy="sourcesh $TOOLSDIR/proxy.sh"
+source $TOOLSDIR/private/active.fish
 
 # deprecated
 # minikube docker
