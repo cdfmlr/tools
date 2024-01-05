@@ -259,6 +259,12 @@ Usage:
 $ minidocker {start,stop}
 ```
 
+## z2fish
+
+Boot Fish from Zsh (Zsh as a login shell setup envs, start fish, and exit.)
+
+This is not included in `active.(fi)sh`. 
+
 ## others
 
 All kinds of clutter. Read the source code before using.

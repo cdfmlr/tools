@@ -1,3 +1,6 @@
 [submodule "private"]
 	path = private
 	url = https://github.com/cdfmlr/privatetools.git
+[submodule "z2fish/z2fish_rs"]
+	path = z2fish/z2fish_rs
+	url = https://github.com/cdfmlr/z2fish.git
