@@ -37,3 +37,7 @@ alias pyenv-brew-relink="sh ${THIS_DIR}/pyenv-brew-relink.sh"
 
 # portnum 每日端口号
 alias portnum="python3 ${THIS_DIR}/portnum.py"
+
+# cloudflareTunnelHealth
+alias cloudflareTunnelHealth="${THIS_DIR}/cloudflareTunnelHealth"
+

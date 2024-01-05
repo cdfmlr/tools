@@ -132,6 +132,26 @@ Notice the arguments are different from `httpserve`.
 cd ./httpstatic && make
 ```
 
+## cloudflareTunnelHealth
+
+This script is used to check whether a CF tunnel is alive.
+
+```sh
+cloudflareTunnelHealth <tunnel name or id>
+```
+
+Stdout:
+
+- "OK: ..."   if tunnel is all right
+- "ERROR ..." if tunnel dead or program error
+
+Return value:
+    
+- 0: (200) OK: tunnel alive
+- 1: (400) argv error
+- 2: (417) ERROR: tunnel dead
+- 3: (500) unexpected error
+
 ## emsend
 
 Send emails.

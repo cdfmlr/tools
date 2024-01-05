@@ -37,3 +37,5 @@ alias killscim="sh $TOOLSDIR/kill-scim.sh"
 # portnum 每日端口号
 alias portnum="python3 $TOOLSDIR/portnum.py"
  
+# cloudflareTunnelHealth
+alias cloudflareTunnelHealth="$TOOLSDIR/cloudflareTunnelHealth"
