@@ -3,6 +3,8 @@
 THIS_DIR="${HOME}/tools"
 PRIVATE_TOOLS_DIR="${THIS_DIR}/private"
 
+export PATH=$PATH:$THIS_DIR/bin
+
 source "${PRIVATE_TOOLS_DIR}/active.sh"
 
 # minikube docker

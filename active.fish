@@ -6,6 +6,8 @@ source $TOOLSDIR/sourcesh.fish
 
 source $TOOLSDIR/private/active.fish
 
+fish_add_path $TOOLSDIR/bin
+
 # deprecated
 # minikube docker
 #alias minidocker="source $TOOLSDIR/minikube-docker.sh"
@@ -37,5 +39,3 @@ alias killscim="sh $TOOLSDIR/kill-scim.sh"
 # portnum 每日端口号
 alias portnum="python3 $TOOLSDIR/portnum.py"
  
-# cloudflareTunnelHealth
-alias cloudflareTunnelHealth="$TOOLSDIR/cloudflareTunnelHealth"

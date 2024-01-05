@@ -64,6 +64,23 @@ optional arguments:
   -o OUTFILE, --outfile OUTFILE
 ```
 
+## echoargs
+
+echoargs print 3 lines:
+
+0. the name of program (`argv[0]`)
+1. the number of positional parameters (`len(argv[1:])`)
+2. the positional parameters (`argv[1:]`)
+
+example:
+
+```sh
+$ echoargs hello world
+/tools/bin/echoargs
+2
+hello world
+```
+
 ## ignore_folders_in_spotlight
 
 [SUDO] Make spotlight ignoring folders:
