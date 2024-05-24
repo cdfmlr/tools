@@ -1,6 +1,7 @@
 # source {this_file} in ~/.config/fish/config.fish
 
 set TOOLSDIR "$HOME/tools"
+set PYTHON "/usr/bin/python3"
 
 source $TOOLSDIR/sourcesh.fish
 
@@ -13,29 +14,29 @@ fish_add_path $TOOLSDIR/bin
 #alias minidocker="source $TOOLSDIR/minikube-docker.sh"
 
 # make-gitignore
-alias makegitignore="python3 $TOOLSDIR/make-gitignore.py"
+alias makegitignore="$PYTHON $TOOLSDIR/make-gitignore.py"
 
 # f2utf8
-alias f2utf8="python3 $TOOLSDIR/f2utf8.py"
+alias f2utf8="$PYTHON $TOOLSDIR/f2utf8.py"
 
 # km2t
-alias km2t="python3 $TOOLSDIR/others/km2t.py"
+alias km2t="$PYTHON $TOOLSDIR/others/km2t.py"
 
 # ignore_folders_in_spotlight
 alias ignore_folders_in_spotlight="sudo $TOOLSDIR/ignore_folders_in_spotlight.py"
 
 # httpserve (python)
-alias httpserve="python3 $TOOLSDIR/simple-cors-http-server.py"
+alias httpserve="$PYTHON $TOOLSDIR/simple-cors-http-server.py"
 
 # httpstatic (go)
 alias httpstatic="$TOOLSDIR/httpstatic/bin/httpstatic"
 
 # emsend
-alias emsend="python3 $TOOLSDIR/myemail_sender.py"
+alias emsend="$PYTHON $TOOLSDIR/myemail_sender.py"
 
 # kill 输入法
 alias killscim="sh $TOOLSDIR/kill-scim.sh"
 
 # portnum 每日端口号
-alias portnum="python3 $TOOLSDIR/portnum.py"
+alias portnum="$PYTHON $TOOLSDIR/portnum.py"
  
