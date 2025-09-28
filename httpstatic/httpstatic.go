@@ -50,11 +50,11 @@ func main() {
 	case true: // enable tls
 		var cert, key string
 		if cert, key, err = parseTlsConfig(*https); err == nil {
-			fmt.Printf("Serving dir %s on HTTPS (%s).\n\tcert: %s\n\t key: %s\n", *dir, *addr, cert, key)
+			fmt.Printf("Serving dir %s on HTTPS (https://%s).\n\tcert: %s\n\t key: %s\n", *dir, *addr, cert, key)
 			err = router.RunTLS(*addr, cert, key)
 		}
 	case false: // http
-		fmt.Printf("Serving dir %s on HTTP (%s).\n", *dir, *addr)
+		fmt.Printf("Serving dir %s on HTTP (http://%s).\n", *dir, *addr)
 		err = router.Run(*addr)
 	}
 
