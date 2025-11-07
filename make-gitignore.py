@@ -5,7 +5,8 @@ A command to fill .gitignore file with templates from github.com/github/gitignor
 """
 
 from typing import List
-import requests
+import urllib.request
+import urllib.error
 import argparse
 
 
@@ -47,14 +48,17 @@ class Gitignore(object):
         return self._url(RAW_URL)
 
     def fetch_content(self):
-        resp = requests.get(self.raw_url())
-        if resp.status_code != 200:
+        try:
+            with urllib.request.urlopen(self.raw_url()) as resp:
+                return resp.read().decode('utf-8')
+        except urllib.error.HTTPError as e:
             # common error: not such {lang}.gitignore
-            if resp.status_code == 404:
+            if e.code == 404:
                 raise ValueError(
                     f'No gitignore template regarding "{self.lang}": {self.hub_url()} responses 404 not found')
-            raise ValueError(f"{resp.status_code=}")
-        return resp.content.decode('utf-8')
+            raise ValueError(f"HTTP Error {e.code}: {e.reason}")
+        except urllib.error.URLError as e:
+            raise ValueError(f"Network error: {e.reason}")
 
 
 class GlobalGitignore(Gitignore):
