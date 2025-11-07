@@ -57,6 +57,8 @@ class Gitignore(object):
                 raise ValueError(
                     f'No gitignore template regarding "{self.lang}": {self.hub_url()} responses 404 not found')
             raise ValueError(f"HTTP Error {e.code}: {e.reason}")
+        except urllib.error.URLError as e:
+            raise ValueError(f"Network error: {e.reason}")
 
 
 class GlobalGitignore(Gitignore):
